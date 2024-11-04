@@ -1,25 +1,36 @@
 function Drink({ name }) {
-    return (
-      <section>
-        <h1>{name}</h1>
-        <dl>
-          <dt>Parte de la planta</dt>
-          <dd>{name === 'té' ? 'hoja' : 'grano'}</dd>
-          <dt>Contenido de cafeína</dt>
-          <dd>{name === 'té' ? '15–70 mg/taza' : '80–185 mg/taza'}</dd>
-          <dt>Antigüedad</dt>
-          <dd>{name === 'té' ? '4,000+ años' : '1,000+ años'}</dd>
-        </dl>
-      </section>
-    );
+  let part, caffeineContent, age;
+
+  if (name === 'té') {
+    part = 'hoja';
+    caffeineContent = '15–70 mg/taza';
+    age = '4,000+ años';
+  } else {
+    part = 'grano';
+    caffeineContent = '80–185 mg/taza';
+    age = '1,000+ años';
   }
-  
-  export default function DrinkList() {
-    return (
-      <div>
-        <Drink name="té" />
-        <Drink name="café" />
-      </div>
-    );
-  }
-  
+
+  return (
+    <section>
+      <h1>{name}</h1>
+      <dl>
+        <dt>Parte de la planta</dt>
+        <dd>{part}</dd>
+        <dt>Contenido de cafeína</dt>
+        <dd>{caffeineContent}</dd>
+        <dt>Antigüedad</dt>
+        <dd>{age}</dd>
+      </dl>
+    </section>
+  );
+}
+
+export default function DrinkList() {
+  return (
+    <div>
+      <Drink name="té" />
+      <Drink name="café" />
+    </div>
+  );
+}
